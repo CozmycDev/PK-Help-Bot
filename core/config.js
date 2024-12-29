@@ -42,12 +42,12 @@ function load() {
 		// config.OpenAIToken = openaiToken;
 		
 		// load anthropic api key for stack trace analyzer
-		if (!fs.existsSync(openaiTokenFile)) {
+		if (!fs.existsSync(anthropicTokenFile)) {
 			console.log(`No anthropic token file found! Please insert your api key into ${anthropicTokenFile}!`);
 			fs.appendFileSync(anthropicTokenFile, "Please insert your api key here!", "utf8");
 			return false;
 		}
-		let anthropicToken = fs.readFileSync(anthropicokenFile, 'utf8');
+		let anthropicToken = fs.readFileSync(anthropicTokenFile, 'utf8');
 		if (anthropicToken.indexOf(" ") > -1 || token == "" || token.length < 10) {
 			console.log(`You haven't provided your anthropic api key! Please insert it into ${anthropicTokenFile}!`);
 			return false;
